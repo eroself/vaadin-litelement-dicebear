@@ -21,7 +21,6 @@
     "hash": ""
   },
   "dependencies": {
-    "@collaborne/polymer-password-strength": "^4.0.0",
     "@polymer/polymer": "^3.4.1",
     "@webcomponents/webcomponentsjs": "^2.2.10",
     "jdenticon": "^3.1.0",
@@ -33,6 +32,7 @@
     "copy-webpack-plugin": "5.1.2",
     "raw-loader": "3.1.0",
     "webpack": "4.42.0",
+    "jdenticon": "^3.1.0",
     "webpack-babel-multi-target-plugin": "2.3.3",
     "webpack-cli": "3.3.11",
     "webpack-dev-server": "3.11.0",
