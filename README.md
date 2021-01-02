@@ -1,2 +1,2 @@
-# vaadin-litelement-jdenticon
-Vaadin 14 and Jdenticon
+# vaadin-litelement-dicebear
+Vaadin 14 and DiceBear
