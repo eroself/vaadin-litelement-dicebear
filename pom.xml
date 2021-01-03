@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.wontlost</groupId>
-    <artifactId>jdenticon-vaadin</artifactId>
+    <artifactId>dicebear-vaadin</artifactId>
     <version>1.0.0</version>
-    <name>JdenticonVaadin</name>
-    <description>Jdenticon for Vaadin 14</description>
+    <name>DicebearVaadin</name>
+    <description>Dicebear for Vaadin 14</description>
     <scm>
         <url>https://github.com/eroself/vaadin-litelement-webcam</url>
         <connection>scm:git:git://https://github.com/eroself/vaadin-litelement-webcam.git</connection>
@@ -288,10 +288,11 @@
                     <plugin>
                         <groupId>com.vaadin</groupId>
                         <artifactId>vaadin-maven-plugin</artifactId>
+                        <version>${vaadin.version}</version>
                         <executions>
                             <execution>
                                 <goals>
-                                    <goal>build-frontend</goal>
+                                    <goal>prepare-frontend</goal>
                                 </goals>
                             </execution>
                         </executions>
