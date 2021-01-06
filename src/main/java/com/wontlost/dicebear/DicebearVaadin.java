@@ -13,7 +13,7 @@ import com.wontlost.dicebear.Constants.*;
 
 @Tag("vaadin-dicebear")
 @JsModule("./vaadin-dicebear.js")
-public class DicebearVaadin extends CustomField<String> implements ClickNotifier<DicebearVaadin> {
+public class DicebearVaadin extends CustomField<String> implements HasStyle, ClickNotifier<DicebearVaadin> {
 
     private String value;
 

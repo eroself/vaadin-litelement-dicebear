@@ -15,9 +15,7 @@ public class Options {
 
     public Options() {
         options.put(Option.background, Json.create("transparent"));
-        options.put(Option.margin, Json.create(2));
-        options.put(Option.height, Json.create(100));
-        options.put(Option.width, Json.create(100));
+        options.put(Option.margin, Json.create(0));
         options.put(Option.dataUri, Json.create(false));
         options.put(Option.radius, Json.create(0));
     }
