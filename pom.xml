@@ -5,7 +5,7 @@
 
     <groupId>com.wontlost</groupId>
     <artifactId>dicebear-vaadin</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <name>DicebearVaadin</name>
     <description>Dicebear for Vaadin 14</description>
     <scm>

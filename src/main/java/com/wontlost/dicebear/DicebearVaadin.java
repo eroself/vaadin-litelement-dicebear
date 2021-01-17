@@ -3,6 +3,7 @@ package com.wontlost.dicebear;
 import com.vaadin.flow.component.*;
 import com.vaadin.flow.component.customfield.CustomField;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.html.Image;
 import elemental.json.Json;
 import elemental.json.JsonObject;
 
@@ -31,6 +32,13 @@ public class DicebearVaadin extends CustomField<String> implements HasStyle, Cli
         setId(id);
         setValue(value);
         setOptions(options);
+    }
+
+    public DicebearVaadin(Image image) {
+        getElement().setProperty("image", image != null ? image.getSrc() : null);
+        getElement().setProperty("alt", image != null ? image.getAlt().orElse("alt") : "alt image");
+        getElement().setProperty("width", image != null ? image.getWidth() : "100");
+        getElement().setProperty("height", image != null ? image.getHeight() : "100");
     }
 
     @Override

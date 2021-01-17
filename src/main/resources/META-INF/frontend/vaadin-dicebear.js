@@ -22,7 +22,11 @@ class VaadinDicebear extends LitElement {
         return { id: String,
                  avatarStyle: String,
                  value: String,
-                 options: Object
+                 options: Object,
+                 image: String, //customized image source
+                 alt: String, //customized image alt
+                 width: String, //customized image width
+                 height: String //customized image height
                 };
     }
 
@@ -44,14 +48,17 @@ class VaadinDicebear extends LitElement {
 
     updated(changedProperties) {
         super.updated(changedProperties);
-        console.log("message.....");
-        let avatars = new Avatars(this.getSprites(), this.options);
-        let placeholder = document.querySelector("#"+this.id);
-        placeholder.innerHTML = avatars.create(this.value);;
+        if(this.image === undefined) {
+            console.log("generated avatar.....");
+            let avatars = new Avatars(this.getSprites(), this.options);
+            let placeholder = document.querySelector("#"+this.id);
+            placeholder.innerHTML = avatars.create(this.value);;
+        }
     }
 
     render() {
-        return html`<div id="${this.id}"/>`;
+        return html`<div id="${this.id}">${this.image !== undefined ? html`<img src="${this.image}" alt="${this.alt}" 
+            width="${this.width}" height="${this.height}"/>` : html``}</div>`;
     }
 
 }
