@@ -3,6 +3,7 @@ package com.wontlost.dicebear;
 import com.vaadin.flow.component.*;
 import com.vaadin.flow.component.customfield.CustomField;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.html.Image;
 import elemental.json.Json;
 import elemental.json.JsonObject;
@@ -14,6 +15,16 @@ import com.wontlost.dicebear.Constants.*;
 
 @Tag("vaadin-dicebear")
 @JsModule("./vaadin-dicebear.js")
+@NpmPackage(value = "@dicebear/avatars", version = "^4.5.4")
+@NpmPackage(value = "@dicebear/avatars-avataaars-sprites", version = "^4.5.4")
+@NpmPackage(value = "@dicebear/avatars-bottts-sprites", version = "^4.5.4")
+@NpmPackage(value = "@dicebear/avatars-female-sprites", version = "^4.5.4")
+@NpmPackage(value = "@dicebear/avatars-gridy-sprites", version = "^4.5.4")
+@NpmPackage(value = "@dicebear/avatars-human-sprites", version = "^4.5.4")
+@NpmPackage(value = "@dicebear/avatars-identicon-sprites", version = "^4.5.4")
+@NpmPackage(value = "@dicebear/avatars-initials-sprites", version = "^4.5.4")
+@NpmPackage(value = "@dicebear/avatars-jdenticon-sprites", version = "^4.5.4")
+@NpmPackage(value = "@dicebear/avatars-male-sprites", version = "^4.5.4")
 public class DicebearVaadin extends CustomField<String> implements HasStyle, ClickNotifier<DicebearVaadin> {
 
     private String value;
