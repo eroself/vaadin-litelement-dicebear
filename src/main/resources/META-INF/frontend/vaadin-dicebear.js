@@ -1,21 +1,21 @@
 import { html, LitElement } from "lit-element";
-import Avatars from '@dicebear/avatars';
-import male      from '@dicebear/avatars-male-sprites';
-import avataaars from '@dicebear/avatars-avataaars-sprites';
-import bottts    from '@dicebear/avatars-bottts-sprites';
-import female    from '@dicebear/avatars-female-sprites';
-import gridy     from '@dicebear/avatars-gridy-sprites';
-import human     from '@dicebear/avatars-human-sprites';
-import identicon from '@dicebear/avatars-identicon-sprites';
-import initials  from '@dicebear/avatars-initials-sprites';
-import jdenticon from '@dicebear/avatars-jdenticon-sprites';
+import { createAvatar } from '@dicebear/avatars';
+import * as maleStyle  from '@dicebear/avatars-male-sprites';
+import * as avataaarsStyle from '@dicebear/avatars-avataaars-sprites';
+import * as botttsStyle    from '@dicebear/avatars-bottts-sprites';
+import * as femaleStyle    from '@dicebear/avatars-female-sprites';
+import * as gridyStyle     from '@dicebear/avatars-gridy-sprites';
+import * as humanStyle     from '@dicebear/avatars-human-sprites';
+import * as identiconStyle from '@dicebear/avatars-identicon-sprites';
+import * as initialsStyle  from '@dicebear/avatars-initials-sprites';
+import * as jdenticonStyle from '@dicebear/avatars-jdenticon-sprites';
 
 class VaadinDicebear extends LitElement {
 
     constructor() {
         super();
         this.options = {};
-        this.avatarStyle = 'human'; //default type
+        this.avatarStyle = 'humanStyle'; //default type
     }
 
     static get properties() {
@@ -31,15 +31,15 @@ class VaadinDicebear extends LitElement {
     }
 
     getSprites() {
-        return this.avatarStyle==='male'?male:
-               this.avatarStyle==='female'?female:
-               this.avatarStyle==='avataaars'?avataaars:
-               this.avatarStyle==='bottts'?bottts:
-               this.avatarStyle==='gridy'?gridy:
-               this.avatarStyle==='identicon'?identicon:
-               this.avatarStyle==='initials'?initials:
-               this.avatarStyle==='jdenticon'?jdenticon:
-               human;//default
+        return this.avatarStyle==='male'?maleStyle:
+               this.avatarStyle==='female'?femaleStyle:
+               this.avatarStyle==='avataaars'?avataaarsStyle:
+               this.avatarStyle==='bottts'?botttsStyle:
+               this.avatarStyle==='gridy'?gridyStyle:
+               this.avatarStyle==='identicon'?identiconStyle:
+               this.avatarStyle==='initials'?initialsStyle:
+               this.avatarStyle==='jdenticon'?jdenticonStyle:
+               humanStyle;//default
     }
 
     createRenderRoot() {
@@ -50,9 +50,9 @@ class VaadinDicebear extends LitElement {
         super.updated(changedProperties);
         if(this.image === undefined) {
             console.log("generated avatar.....");
-            let avatars = new Avatars(this.getSprites(), this.options);
+            let avatars = createAvatar(this.getSprites(), Object.assign({ seed:this.value }, this.options));
             let placeholder = document.querySelector("#"+this.id);
-            placeholder.innerHTML = avatars.create(this.value);;
+            placeholder.innerHTML = avatars;
         }
     }
 

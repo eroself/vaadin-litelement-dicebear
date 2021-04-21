@@ -14,17 +14,17 @@ import java.util.Random;
 import com.wontlost.dicebear.Constants.*;
 
 @Tag("vaadin-dicebear")
+@NpmPackage(value = "@dicebear/avatars", version = "^4.6.1")
+@NpmPackage(value = "@dicebear/avatars-avataaars-sprites", version = "^4.6.1")
+@NpmPackage(value = "@dicebear/avatars-bottts-sprites", version = "^4.6.1")
+@NpmPackage(value = "@dicebear/avatars-female-sprites", version = "^4.6.1")
+@NpmPackage(value = "@dicebear/avatars-gridy-sprites", version = "^4.6.1")
+@NpmPackage(value = "@dicebear/avatars-human-sprites", version = "^4.6.1")
+@NpmPackage(value = "@dicebear/avatars-identicon-sprites", version = "^4.6.1")
+@NpmPackage(value = "@dicebear/avatars-initials-sprites", version = "^4.6.1")
+@NpmPackage(value = "@dicebear/avatars-jdenticon-sprites", version = "^4.6.1")
+@NpmPackage(value = "@dicebear/avatars-male-sprites", version = "^4.6.1")
 @JsModule("./vaadin-dicebear.js")
-@NpmPackage(value = "@dicebear/avatars", version = "^4.5.4")
-@NpmPackage(value = "@dicebear/avatars-avataaars-sprites", version = "^4.5.4")
-@NpmPackage(value = "@dicebear/avatars-bottts-sprites", version = "^4.5.4")
-@NpmPackage(value = "@dicebear/avatars-female-sprites", version = "^4.5.4")
-@NpmPackage(value = "@dicebear/avatars-gridy-sprites", version = "^4.5.4")
-@NpmPackage(value = "@dicebear/avatars-human-sprites", version = "^4.5.4")
-@NpmPackage(value = "@dicebear/avatars-identicon-sprites", version = "^4.5.4")
-@NpmPackage(value = "@dicebear/avatars-initials-sprites", version = "^4.5.4")
-@NpmPackage(value = "@dicebear/avatars-jdenticon-sprites", version = "^4.5.4")
-@NpmPackage(value = "@dicebear/avatars-male-sprites", version = "^4.5.4")
 public class DicebearVaadin extends CustomField<String> implements HasStyle, ClickNotifier<DicebearVaadin> {
 
     private String value;
