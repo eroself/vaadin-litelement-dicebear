@@ -1,7 +1,6 @@
 package com.wontlost.dicebear;
 
 import com.vaadin.flow.component.*;
-import com.vaadin.flow.component.customfield.CustomField;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.html.Image;
@@ -15,33 +14,36 @@ import com.wontlost.dicebear.Constants.*;
 
 @Tag("vaadin-dicebear")
 @JsModule("./vaadin-dicebear.js")
-@NpmPackage(value = "@dicebear/avatars", version = "4.5.4")
-@NpmPackage(value = "@dicebear/avatars-avataaars-sprites", version = "4.5.4")
-@NpmPackage(value = "@dicebear/avatars-bottts-sprites", version = "4.5.4")
-@NpmPackage(value = "@dicebear/avatars-female-sprites", version = "4.5.4")
-@NpmPackage(value = "@dicebear/avatars-gridy-sprites", version = "4.5.4")
-@NpmPackage(value = "@dicebear/avatars-human-sprites", version = "4.5.4")
-@NpmPackage(value = "@dicebear/avatars-identicon-sprites", version = "4.5.4")
-@NpmPackage(value = "@dicebear/avatars-initials-sprites", version = "4.5.4")
-@NpmPackage(value = "@dicebear/avatars-jdenticon-sprites", version = "4.5.4")
-@NpmPackage(value = "@dicebear/avatars-male-sprites", version = "4.5.4")
-public class DicebearVaadin extends CustomField<String> implements HasStyle, ClickNotifier<DicebearVaadin> {
-
-    private String value;
+@NpmPackage(value = "@dicebear/avatars", version = "4.10.0")
+@NpmPackage(value = "@dicebear/adventurer", version = "4.10.0")
+@NpmPackage(value = "@dicebear/adventurer-neutral", version = "4.10.0")
+@NpmPackage(value = "@dicebear/big-ears", version = "4.10.0")
+@NpmPackage(value = "@dicebear/big-ears-neutral", version = "4.10.0")
+@NpmPackage(value = "@dicebear/big-smile", version = "4.10.0")
+@NpmPackage(value = "@dicebear/croodles", version = "4.10.0")
+@NpmPackage(value = "@dicebear/croodles-neutral", version = "4.10.0")
+@NpmPackage(value = "@dicebear/micah", version = "4.10.0")
+@NpmPackage(value = "@dicebear/miniavs", version = "4.10.0")
+@NpmPackage(value = "@dicebear/open-peeps", version = "4.10.0")
+@NpmPackage(value = "@dicebear/personas", version = "4.10.0")
+@NpmPackage(value = "@dicebear/pixel-art", version = "4.10.0")
+@NpmPackage(value = "@dicebear/pixel-art-neutral", version = "4.10.0")
+@NpmPackage(value = "@dicebear/avatars-avataaars-sprites", version = "4.10.0")
+@NpmPackage(value = "@dicebear/avatars-bottts-sprites", version = "4.10.0")
+@NpmPackage(value = "@dicebear/avatars-identicon-sprites", version = "4.10.0")
+@NpmPackage(value = "@dicebear/avatars-initials-sprites", version = "4.10.0")
+@NpmPackage(value = "@dicebear/avatars-jdenticon-sprites", version = "4.10.0")
+@NpmPackage(value = "@dicebear/avatars-male-sprites", version = "4.10.0")
+public class DicebearVaadin extends Component implements HasStyle, HasSize, ClickNotifier<DicebearVaadin> {
 
     private String id;
 
     public DicebearVaadin() {
-        this(null, "", null);
+        this(null, null);
     }
 
-    public DicebearVaadin(String value) {
-        this(null, value, null);
-    }
-
-    public DicebearVaadin(String id, String value, Options options) {
+    public DicebearVaadin(String id, Options options) {
         setId(id);
-        setValue(value);
         setOptions(options);
     }
 
@@ -63,24 +65,12 @@ public class DicebearVaadin extends CustomField<String> implements HasStyle, Cli
         getElement().setProperty("id", id==null || id.length()==0? "dicebear_"+Math.abs(new Random().nextInt()): id);
     }
 
-    @Override
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public void setValue(String value) {
-        super.setValue(value);
-        this.value = value;
-        getElement().setProperty("value", value);
-    }
-
     public void setOptions(Options options) {
         getElement().setPropertyJson("options", options!=null?options.getOptionJson():new Options().getOptionJson());
     }
 
     public void setStyle(Style style) {
-        getElement().setProperty("avatarStyle", style!=null?style.name():Style.human.name());
+        getElement().setProperty("avatarStyle", style!=null?style.name():Style.avataaars.name());
     }
 
 
@@ -88,16 +78,6 @@ public class DicebearVaadin extends CustomField<String> implements HasStyle, Cli
         String optionJson = getElement().getProperty("options");
         JsonObject jsonObject = Json.parse(optionJson);
         return new Options(jsonObject);
-    }
-
-    @Override
-    protected String generateModelValue() {
-        return value;
-    }
-
-    @Override
-    protected void setPresentationValue(String s) {
-        this.value = s;
     }
 
 }

@@ -1,27 +1,34 @@
 import { html, LitElement } from "lit-element";
-import Avatars from '@dicebear/avatars';
-import male      from '@dicebear/avatars-male-sprites';
-import avataaars from '@dicebear/avatars-avataaars-sprites';
-import bottts    from '@dicebear/avatars-bottts-sprites';
-import female    from '@dicebear/avatars-female-sprites';
-import gridy     from '@dicebear/avatars-gridy-sprites';
-import human     from '@dicebear/avatars-human-sprites';
-import identicon from '@dicebear/avatars-identicon-sprites';
-import initials  from '@dicebear/avatars-initials-sprites';
-import jdenticon from '@dicebear/avatars-jdenticon-sprites';
+import { createAvatar } from '@dicebear/avatars';
+import * as adventurer from '@dicebear/adventurer';
+import * as adventurer_neutral from '@dicebear/adventurer-neutral';
+import * as avataaars from '@dicebear/avatars-avataaars-sprites';
+import * as big_ears from '@dicebear/big-ears';
+import * as big_ears_neutral from '@dicebear/big-ears-neutral';
+import * as big_smile from '@dicebear/big-smile';
+import * as bottts from '@dicebear/avatars-bottts-sprites';
+import * as croodles from '@dicebear/croodles';
+import * as croodles_neutral from '@dicebear/croodles-neutral';
+import * as identicon from '@dicebear/avatars-identicon-sprites';
+import * as initials from '@dicebear/avatars-initials-sprites';
+import * as micah from '@dicebear/micah';
+import * as miniavs from '@dicebear/miniavs';
+import * as open_peeps from '@dicebear/open-peeps';
+import * as personas from '@dicebear/personas';
+import * as pixel_art from '@dicebear/pixel-art';
+import * as pixel_art_neutral from '@dicebear/pixel-art-neutral';
 
 class VaadinDicebear extends LitElement {
 
     constructor() {
         super();
         this.options = {};
-        this.avatarStyle = 'human'; //default type
+        this.avatarStyle = 'avataaars'; //default type
     }
 
     static get properties() {
         return { id: String,
                  avatarStyle: String,
-                 value: String,
                  options: Object,
                  image: String, //customized image source
                  alt: String, //customized image alt
@@ -31,15 +38,24 @@ class VaadinDicebear extends LitElement {
     }
 
     getSprites() {
-        return this.avatarStyle==='male'?male:
-               this.avatarStyle==='female'?female:
+        return this.avatarStyle==='adventurer'?adventurer:
+               this.avatarStyle==='adventurer_neutral'?adventurer_neutral:
                this.avatarStyle==='avataaars'?avataaars:
+               this.avatarStyle==='big_ears'?big_ears:
+               this.avatarStyle==='big_ears_neutral'?big_ears_neutral:
+               this.avatarStyle==='big_smile'?big_smile:
                this.avatarStyle==='bottts'?bottts:
-               this.avatarStyle==='gridy'?gridy:
+               this.avatarStyle==='croodles'?croodles:
+               this.avatarStyle==='croodles_neutral'?croodles_neutral:
                this.avatarStyle==='identicon'?identicon:
                this.avatarStyle==='initials'?initials:
-               this.avatarStyle==='jdenticon'?jdenticon:
-               human;//default
+               this.avatarStyle==='micah'?micah:
+               this.avatarStyle==='miniavs'?miniavs:
+               this.avatarStyle==='open_peeps'?open_peeps:
+               this.avatarStyle==='personas'?personas:
+               this.avatarStyle==='pixel_art'?pixel_art:
+               this.avatarStyle==='pixel_art_neutral'?pixel_art_neutral:
+               avataaars;//default
     }
 
     createRenderRoot() {
@@ -50,9 +66,9 @@ class VaadinDicebear extends LitElement {
         super.updated(changedProperties);
         if(this.image === undefined) {
             console.log("generated avatar.....");
-            let avatars = new Avatars(this.getSprites(), this.options);
+            let avatars = createAvatar(this.getSprites(), this.options);
             let placeholder = document.querySelector("#"+this.id);
-            placeholder.innerHTML = avatars.create(this.value);;
+            placeholder.innerHTML = avatars;
         }
     }
 
