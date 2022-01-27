@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "lit-element": "2.5.1",
-    "construct-style-sheets-polyfill": "3.0.4",
+    "construct-style-sheets-polyfill": "3.0.5",
     "@polymer/polymer": "3.2.0",
     "@webcomponents/webcomponentsjs": "^2.2.10",
     "lit-html": "1.4.1"
