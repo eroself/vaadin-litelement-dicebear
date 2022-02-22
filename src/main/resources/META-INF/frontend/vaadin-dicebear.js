@@ -31,9 +31,7 @@ class VaadinDicebear extends LitElement {
                  avatarStyle: String,
                  options: Object,
                  image: String, //customized image source
-                 alt: String, //customized image alt
-                 width: String, //customized image width
-                 height: String //customized image height
+                 alt: String //customized image height
                 };
     }
 
@@ -73,8 +71,7 @@ class VaadinDicebear extends LitElement {
     }
 
     render() {
-        return html`<div id="${this.id}">${this.image !== undefined ? html`<img src="${this.image}" alt="${this.alt}" 
-            width="${this.width}" height="${this.height}"/>` : html``}</div>`;
+        return html`<div id="${this.id}">${this.image !== undefined ? html`<img src="${this.image}" alt="${this.alt}" />` : html``}</div>`;
     }
 
 }
